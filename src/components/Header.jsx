@@ -22,6 +22,7 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline';
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid';
+import '@/components/header.module.scss';
 
 const products = [
     {
@@ -66,16 +67,30 @@ export default function Example() {
 
     return (
         <header className="bg-white">
+            <div className="mx-auto flex max-w-full items-center justify-end py-4 lg:px-8 bg-gray-100">
+                <div className="hidden sm:flex sm:gap-x-6 sm:justify-end">
+                    <a href="tel:+74994031776" className="text-sm/5 text-gray-500">
+                        +7 (499) 403-17-76
+                    </a>
+                    <p className="text-sm/5 text-gray-500 ml-20">Пн-Вс с 09.00 до 18.00</p>
+                    <a href="mailto:zakaz@drives-vfd.ru" className="text-sm/5 text-gray-500 ml-20">
+                        zakaz@giovenzana.ru
+                    </a>
+                </div>
+            </div>
             <nav
                 aria-label="Global"
-                className="mx-auto flex max-w-full items-center justify-between p-6 lg:px-8"
+                className="mx-auto flex max-w-full items-center justify-between p-4 lg:px-8 border-b border-neutral-300"
             >
+                {/* Логотип */}
                 <div className="flex ">
                     <a href="#" className="-m-1.5 p-1.5">
                         <span className="sr-only">Альпарк</span>
                         <img alt="" src="/alpark.svg" className="h-10 w-auto" />
                     </a>
                 </div>
+
+                {/* Кнопка меню (бургер) */}
                 <div className="flex xl:hidden">
                     <button
                         type="button"
@@ -86,6 +101,8 @@ export default function Example() {
                         <Bars3Icon aria-hidden="true" className="size-6" />
                     </button>
                 </div>
+
+                {/* Главное меню и выпадающее меню */}
                 <PopoverGroup className="hidden xl:flex xl:gap-x-12">
                     <Popover className="relative">
                         <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
@@ -159,29 +176,16 @@ export default function Example() {
                         Контакты
                     </a>
                 </PopoverGroup>
-                <div className="hidden sm:flex sm:gap-x-6 sm:justify-end p-3 border rounded-md">
-                    {/* <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                        Log in <span aria-hidden="true">&rarr;</span>
-                    </a> */}
-                    <a href="mailto:zakaz@drives-vfd.ru" className="text-lg/6  text-gray-900">
-                        zakaz@giovenzana.ru
-                    </a>
-                    <a href="tel:+74994031776" className="text-lg/6 font-semibold text-gray-900">
-                        +7 (499) 403-17-76
-                    </a>
-                </div>
             </nav>
+
+            {/* Главное меню на моб. устр-вах */}
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
                 <div className="fixed inset-0 z-10" />
                 <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">ООО "Альпарк"</span>
-                            <img
-                                alt=""
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                                className="h-8 w-auto"
-                            />
+                            <img alt="" src="/alpark.svg" className="h-8 w-auto" />
                         </a>
                         <button
                             type="button"
